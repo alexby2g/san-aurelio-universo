@@ -1,1 +1,0 @@
-Abre index.html para leer San Aurelio Capítulo 0 con las fotografías recuperadas. Para compartir, envía toda esta carpeta o el ZIP completo.
