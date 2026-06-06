@@ -5,63 +5,46 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>San Aurelio — Capítulo 0: Antes del Silencio</title>
 <style>
+
 :root {
-  --bg:#120d09;
-  --paper:#f1dfb8;
-  --paper2:#e3c891;
-  --ink:#201208;
-  --muted:#56371f;
+  --bg:#1a120c;
+  --paper:#f4e2bb;
+  --paper2:#e6c993;
+  --ink:#1d1209;
+  --muted:#5c3a20;
+  --line:rgba(70,42,20,.28);
 }
+
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+
+html {
+  scroll-behavior:smooth;
+}
+
 body {
   margin:0;
-  background:
-    radial-gradient(circle at top, rgba(240,205,130,.12), transparent 28%),
-    linear-gradient(180deg,#0b0705,#21140c 48%,#080604);
+  background:#1a120c;
   color:var(--ink);
   font-family: Georgia, "Times New Roman", serif;
   line-height:1.85;
 }
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,.028) 1px, transparent 1px);
-  background-size:4px 4px, 9px 9px;
-  opacity:.10;
-  z-index:0;
-}
+
 .wrapper {
   max-width:1040px;
   margin:0 auto;
   padding:35px 14px 90px;
 }
+
 .paper {
-  background:
-    radial-gradient(circle at 8% 4%, rgba(84,44,19,.06), transparent 18%),
-    radial-gradient(circle at 90% 95%, rgba(78,35,12,.08), transparent 22%),
-    linear-gradient(180deg,#f3e0b6,#e4c68d);
-  border:1px solid rgba(54,32,14,.55);
+  background:linear-gradient(180deg, var(--paper), var(--paper2));
+  border:1px solid var(--line);
   border-radius:8px;
   padding:clamp(24px,5vw,76px);
-  box-shadow:0 30px 90px rgba(0,0,0,.68), inset 0 0 90px rgba(70,35,10,.24);
+  box-shadow:0 24px 70px rgba(0,0,0,.45);
   position:relative;
-  z-index:1;
-  isolation:isolate;
+  color:var(--ink);
 }
-.paper::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:8px;
-  box-shadow: inset 0 0 28px rgba(50,25,8,.08);
-  z-index:-1;
-}
+
 .cover {
   min-height:70vh;
   display:flex;
@@ -71,46 +54,61 @@ body::before {
   text-align:center;
   padding:40px 0;
 }
+
 .cover .small {
   letter-spacing:.32em;
   font-family:"Courier New", monospace;
   color:var(--muted);
 }
+
 .cover h1 {
   font-size:clamp(3rem,9vw,6rem);
   letter-spacing:.08em;
   margin:.20em 0;
+  color:var(--ink);
 }
+
 .cover h2 {
   font-size:clamp(1.4rem,4vw,2.4rem);
   font-weight:normal;
   margin:.2em 0 1em;
+  color:var(--ink);
 }
+
 .cover .vol {
   color:var(--muted);
   font-style:italic;
 }
+
 .archive {
   font-family:"Courier New", monospace;
-  border:2px solid rgba(60,35,17,.42);
+  border:2px solid rgba(70,42,20,.35);
   padding:clamp(18px,3vw,34px);
   margin:35px 0 60px;
-  background:rgba(255,244,203,.22);
+  background:rgba(255,248,226,.55);
+  color:var(--ink);
 }
+
 p {
   font-size:clamp(1.06rem,2.1vw,1.23rem);
   margin:0 0 1.08em;
+  color:var(--ink);
 }
+
 .scene {
   margin:70px 0;
+  color:var(--ink);
 }
+
 .photo-title {
   margin:70px 0 .2em;
   text-align:center;
   font-family:"Courier New", monospace;
   letter-spacing:.035em;
   font-size:clamp(1.3rem,3vw,2rem);
+  color:var(--ink);
 }
+
 .photo-subtitle {
   text-align:center;
   font-size:clamp(1.35rem,3vw,2rem);
@@ -119,133 +117,98 @@ p {
   font-weight:normal;
   margin:0 0 28px;
 }
+
 .photo {
   margin:30px auto 55px;
 }
+
 .photo img {
   width:100%;
   display:block;
   border-radius:10px;
-  box-shadow:0 28px 85px rgba(0,0,0,.72);
+  box-shadow:0 18px 50px rgba(0,0,0,.42);
 }
+
 .dialog {
   border-left:4px solid #6a4423;
   padding:13px 18px;
-  background:rgba(255,244,205,.25);
+  background:rgba(255,248,226,.55);
   font-style:italic;
+  color:var(--ink);
 }
+
 .speaker {
   font-weight:bold;
   font-style:normal;
 }
+
 blockquote {
   margin:80px 0 20px;
   padding:34px 24px;
   text-align:center;
   font-size:clamp(1.15rem,2.5vw,1.55rem);
   font-style:italic;
-  background:rgba(255,255,255,.18);
-  border-top:1px solid rgba(60,35,17,.35);
-  border-bottom:1px solid rgba(60,35,17,.35);
+  background:rgba(255,248,226,.48);
+  border-top:1px solid rgba(60,35,17,.28);
+  border-bottom:1px solid rgba(60,35,17,.28);
+  color:var(--ink);
 }
+
+.nav-chapters a {
+  color:#3b2414 !important;
+}
+
 @media (max-width:640px) {
-  .wrapper { padding:0; }
-  .paper { border-radius:0; padding:24px 18px 60px; }
-  .cover { min-height:55vh; }
-  p { line-height:1.75; }
+  body {
+    background:#120c08;
+  }
+
+  .wrapper {
+    padding:0;
+  }
+
+  .paper {
+    border-radius:0;
+    padding:24px 18px 60px;
+    background:linear-gradient(180deg,#f8e8c5,#ecd3a0);
+    box-shadow:none;
+  }
+
+  .cover {
+    min-height:55vh;
+  }
+
+  p {
+    font-size:1.08rem;
+    line-height:1.8;
+    color:#1d1209;
+  }
+
+  .photo-title {
+    color:#1d1209;
+  }
+
+  .photo-subtitle {
+    color:#5c3a20;
+  }
+
+  .archive,
+  .dialog,
+  blockquote {
+    background:rgba(255,252,238,.72);
+    color:#1d1209;
+  }
+
+  .photo img {
+    box-shadow:0 12px 28px rgba(0,0,0,.36);
+  }
 }
+
 @media print {
   body { background:white; }
   .wrapper { padding:0; }
   .paper { box-shadow:none; border:none; }
   .photo, .scene { page-break-inside:avoid; }
-}
-
-/* ===== FIX DEFINITIVO MÓVIL / CONTRASTE ===== */
-.paper > * {
-  position: relative;
-  z-index: 2;
-}
-
-.paper,
-.paper p,
-.paper h1,
-.paper h2,
-.paper h3,
-.archive,
-.scene,
-blockquote {
-  color: var(--ink);
-  text-shadow: none;
-}
-
-.archive {
-  background: rgba(255,248,221,.48);
-  border-color: rgba(60,35,17,.34);
-}
-
-.dialog {
-  background: rgba(255,248,221,.48);
-  color: #201208;
-}
-
-.photo-subtitle,
-.cover .small,
-.cover .vol {
-  color: var(--muted);
-}
-
-@media (max-width:640px) {
-  body {
-    background: linear-gradient(180deg,#0b0705,#160e09 52%,#080604);
-  }
-
-  body::before {
-    opacity: .04;
-  }
-
-  .paper {
-    background:
-      radial-gradient(circle at 8% 4%, rgba(84,44,19,.035), transparent 18%),
-      radial-gradient(circle at 90% 95%, rgba(78,35,12,.045), transparent 22%),
-      linear-gradient(180deg,#f6e6c2,#e9cf99);
-    color:#201208;
-    box-shadow:none;
-  }
-
-  .paper::after {
-    box-shadow: inset 0 0 14px rgba(50,25,8,.04);
-    z-index:-1;
-  }
-
-  p {
-    color:#201208;
-    font-size:1.08rem;
-    line-height:1.8;
-  }
-
-  .photo-title {
-    color:#201208;
-  }
-
-  .photo-subtitle {
-    color:#56371f;
-  }
-
-  .archive,
-  blockquote {
-    background:rgba(255,249,226,.60);
-    color:#201208;
-  }
-
-  .dialog {
-    background:rgba(255,249,226,.62);
-    color:#201208;
-  }
-
-  .photo img {
-    box-shadow:0 18px 45px rgba(0,0,0,.45);
-  }
 }
 
 </style>
