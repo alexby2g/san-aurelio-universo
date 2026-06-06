@@ -7,10 +7,10 @@
 <style>
 :root {
   --bg:#120d09;
-  --paper:#d8bd86;
-  --paper2:#c7a46a;
-  --ink:#26170e;
-  --muted:#5d3f25;
+  --paper:#f1dfb8;
+  --paper2:#e3c891;
+  --ink:#1f1208;
+  --muted:#50331d;
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
@@ -29,11 +29,10 @@ body::before {
   inset:0;
   pointer-events:none;
   background-image:
-    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,.12) 1px, transparent 1px);
+    radial-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,.045) 1px, transparent 1px);
   background-size:4px 4px, 9px 9px;
-  opacity:.36;
-  mix-blend-mode:overlay;
+  opacity:.14;
 }
 .wrapper {
   max-width:1040px;
@@ -42,13 +41,13 @@ body::before {
 }
 .paper {
   background:
-    radial-gradient(circle at 8% 4%, rgba(84,44,19,.16), transparent 18%),
-    radial-gradient(circle at 90% 95%, rgba(78,35,12,.22), transparent 22%),
-    linear-gradient(180deg,#e3ca91,#c8a66d);
+    radial-gradient(circle at 8% 4%, rgba(84,44,19,.08), transparent 18%),
+    radial-gradient(circle at 90% 95%, rgba(78,35,12,.10), transparent 22%),
+    linear-gradient(180deg,#f1dfb8,#e3c891);
   border:1px solid rgba(54,32,14,.55);
   border-radius:8px;
   padding:clamp(24px,5vw,76px);
-  box-shadow:0 30px 90px rgba(0,0,0,.68), inset 0 0 90px rgba(70,35,10,.24);
+  box-shadow:0 30px 90px rgba(0,0,0,.55), inset 0 0 60px rgba(70,35,10,.12);
   position:relative;
 }
 .paper::after {
@@ -57,7 +56,7 @@ body::before {
   inset:0;
   pointer-events:none;
   border-radius:8px;
-  box-shadow: inset 0 0 55px rgba(50,25,8,.22);
+  box-shadow: inset 0 0 35px rgba(50,25,8,.10);
 }
 .cover {
   min-height:70vh;
@@ -157,6 +156,69 @@ blockquote {
   .paper { box-shadow:none; border:none; }
   .photo, .scene { page-break-inside:avoid; }
 }
+
+/* ===== Mejoras de lectura para celulares ===== */
+.paper,
+.paper p,
+.paper h1,
+.paper h2,
+.paper h3,
+.archive,
+.scene,
+blockquote {
+  color: var(--ink);
+}
+
+.archive {
+  background: rgba(255,248,221,.42);
+  border-color: rgba(60,35,17,.34);
+}
+
+.dialog {
+  background: rgba(255,248,221,.45);
+  color: #1f1208;
+}
+
+.photo-subtitle,
+.cover .small,
+.cover .vol {
+  color: var(--muted);
+}
+
+@media (max-width:640px) {
+  body {
+    background: linear-gradient(180deg,#0b0705,#180f09 52%,#080604);
+  }
+
+  .paper {
+    background:
+      radial-gradient(circle at 8% 4%, rgba(84,44,19,.05), transparent 18%),
+      radial-gradient(circle at 90% 95%, rgba(78,35,12,.06), transparent 22%),
+      linear-gradient(180deg,#f4e3bd,#e7cc96);
+    color:#1f1208;
+    box-shadow:none;
+  }
+
+  .paper::after {
+    box-shadow: inset 0 0 22px rgba(50,25,8,.08);
+  }
+
+  p {
+    color:#1f1208;
+    font-size:1.08rem;
+    line-height:1.8;
+  }
+
+  .archive {
+    background:rgba(255,249,226,.55);
+  }
+
+  blockquote {
+    background:rgba(255,249,226,.38);
+    color:#1f1208;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -169,7 +231,7 @@ blockquote {
   <h2>Antes del Silencio</h2>
   <p class="vol">Volumen I · Las voces que nadie escuchó</p>
 </section>
-<section class='archive'><p>ARCHIVO RECUPERADO #001</p><p>Procedencia: Desconocida.<br>Fecha de recuperación: No determinada.<br>Estado del documento: Parcialmente conservado.</p><p>Observaciones</p><p>Parte de los documentos relacionados con San Aurelio fueron encontrados en condiciones irregulares.<br>La mayoría presentaba daños provocados por humedad, fuego o deterioro natural.<br>Algunos fragmentos resultaron imposibles de recuperar.<br>Otros parecían haber sido alterados.</p><p>Sin embargo, ciertos documentos permanecieron intactos.<br>Este manuscrito es uno de ellos.</p><p>No contiene firma.<br>No contiene fecha.<br>No menciona quién lo escribió.</p><p>Pero todas las referencias encontradas apuntan hacia un mismo lugar.<br>Y hacia una misma persona.</p><p>Una niña llamada Irene.</p><p>Nota del Archivista</p><p>No existen registros oficiales que expliquen los acontecimientos relacionados con la hora 11:47.<br>Sin embargo, los testimonios recuperados coinciden en un detalle inquietante.<br>Todos hablan de un día que cambió para siempre a los habitantes de San Aurelio.</p><p>Este documento corresponde al inicio de esos acontecimientos.</p><p>Clasificación: Restringida.<br>Acceso autorizado únicamente para fines de investigación.</p><p>&quot;No todas las historias deben ser olvidadas.<br>Algunas existen para recordarnos lo que fuimos capaces de perder.&quot;</p></section>
+<section class='archive'><p>ARCHIVO RECUPERADO #001</p><p>Procedencia: Desconocida.<br>Fecha estimada de los acontecimientos: Primavera de 2010.<br>Fecha de recuperación del material: Año 2026.<br>Estado del documento: Parcialmente conservado.</p><p>Observaciones</p><p>Parte de los documentos relacionados con San Aurelio fueron encontrados en condiciones irregulares.<br>La mayoría presentaba daños provocados por humedad, fuego o deterioro natural.<br>Algunos fragmentos resultaron imposibles de recuperar.<br>Otros parecían haber sido alterados.</p><p>Sin embargo, ciertos documentos permanecieron intactos.<br>Este manuscrito es uno de ellos.</p><p>No contiene firma.<br>No contiene fecha.<br>No menciona quién lo escribió.</p><p>Pero todas las referencias encontradas apuntan hacia un mismo lugar.<br>Y hacia una misma persona.</p><p>Una niña llamada Irene.</p><p>Nota del Archivista</p><p>No existen registros oficiales que expliquen los acontecimientos relacionados con la hora 11:47.<br>Sin embargo, los testimonios recuperados coinciden en un detalle inquietante.<br>Todos hablan de un día que cambió para siempre a los habitantes de San Aurelio.</p><p>Este documento corresponde al inicio de esos acontecimientos.</p><p>Clasificación: Restringida.<br>Acceso autorizado únicamente para fines de investigación.</p><p>&quot;No todas las historias deben ser olvidadas.<br>Algunas existen para recordarnos lo que fuimos capaces de perder.&quot;</p></section>
 <section class="scene">
   <h2 class="photo-title">Fotografía Recuperada #001</h2>
   <h3 class="photo-subtitle">"La niña de la bicicleta"</h3>
