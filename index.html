@@ -3,244 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>San Aurelio — Capítulo 0: Antes del Silencio</title>
+<title>San Aurelio — Expediente</title>
 <style>
-:root {
-  --bg:#120d09;
-  --paper:#d8bd86;
-  --paper2:#c7a46a;
-  --ink:#26170e;
-  --muted:#5d3f25;
-}
-* { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
-body {
+*{box-sizing:border-box}
+body{
   margin:0;
+  min-height:100vh;
   background:
-    radial-gradient(circle at top, rgba(240,205,130,.12), transparent 28%),
-    linear-gradient(180deg,#0b0705,#21140c 48%,#080604);
-  color:var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  line-height:1.85;
+    radial-gradient(circle at top,rgba(236,202,129,.15),transparent 30%),
+    linear-gradient(180deg,#080604,#20140c 52%,#080604);
+  color:#28180e;
+  font-family:Georgia,"Times New Roman",serif;
 }
-body::before {
-  content:"";
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-  background-image:
-    radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
-    radial-gradient(rgba(0,0,0,.12) 1px, transparent 1px);
-  background-size:4px 4px, 9px 9px;
-  opacity:.36;
-  mix-blend-mode:overlay;
+.wrap{
+  max-width:1000px;
+  margin:auto;
+  padding:36px 16px 90px;
 }
-.wrapper {
-  max-width:1040px;
-  margin:0 auto;
-  padding:35px 14px 90px;
-}
-.paper {
+.paper{
+  min-height:90vh;
   background:
-    radial-gradient(circle at 8% 4%, rgba(84,44,19,.16), transparent 18%),
-    radial-gradient(circle at 90% 95%, rgba(78,35,12,.22), transparent 22%),
+    radial-gradient(circle at 10% 4%,rgba(84,44,19,.16),transparent 18%),
+    radial-gradient(circle at 90% 95%,rgba(78,35,12,.22),transparent 22%),
     linear-gradient(180deg,#e3ca91,#c8a66d);
   border:1px solid rgba(54,32,14,.55);
-  border-radius:8px;
-  padding:clamp(24px,5vw,76px);
+  border-radius:10px;
+  padding:clamp(28px,6vw,80px);
   box-shadow:0 30px 90px rgba(0,0,0,.68), inset 0 0 90px rgba(70,35,10,.24);
-  position:relative;
 }
-.paper::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-  border-radius:8px;
-  box-shadow: inset 0 0 55px rgba(50,25,8,.22);
-}
-.cover {
-  min-height:70vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+.cover{
   text-align:center;
-  padding:40px 0;
+  padding:80px 0 60px;
 }
-.cover .small {
-  letter-spacing:.32em;
-  font-family:"Courier New", monospace;
-  color:var(--muted);
+.cover .small{
+  font-family:"Courier New",monospace;
+  letter-spacing:.28em;
+  color:#5d3f25;
 }
-.cover h1 {
-  font-size:clamp(3rem,9vw,6rem);
-  letter-spacing:.08em;
-  margin:.20em 0;
+h1{
+  font-size:clamp(3.2rem,10vw,6.5rem);
+  letter-spacing:.13em;
+  margin:.25em 0;
 }
-.cover h2 {
-  font-size:clamp(1.4rem,4vw,2.4rem);
+h2{
+  font-size:clamp(1.6rem,4vw,2.6rem);
   font-weight:normal;
   margin:.2em 0 1em;
 }
-.cover .vol {
-  color:var(--muted);
-  font-style:italic;
-}
-.archive {
-  font-family:"Courier New", monospace;
+.note{
+  font-family:"Courier New",monospace;
   border:2px solid rgba(60,35,17,.42);
-  padding:clamp(18px,3vw,34px);
-  margin:35px 0 60px;
   background:rgba(255,244,203,.22);
+  padding:24px;
+  line-height:1.8;
+  margin:30px 0 60px;
 }
-p {
-  font-size:clamp(1.06rem,2.1vw,1.23rem);
-  margin:0 0 1.08em;
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
 }
-.scene {
-  margin:70px 0;
+.card{
+  background:rgba(255,244,203,.22);
+  border:1px solid rgba(60,35,17,.35);
+  padding:24px;
+  min-height:230px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  box-shadow:0 12px 30px rgba(0,0,0,.18);
 }
-.photo-title {
-  margin:70px 0 .2em;
-  text-align:center;
-  font-family:"Courier New", monospace;
-  letter-spacing:.035em;
-  font-size:clamp(1.3rem,3vw,2rem);
+.card h3{
+  font-size:1.7rem;
+  margin:.1em 0;
 }
-.photo-subtitle {
-  text-align:center;
-  font-size:clamp(1.35rem,3vw,2rem);
-  color:var(--muted);
-  font-style:italic;
-  font-weight:normal;
-  margin:0 0 28px;
+.card p{
+  line-height:1.7;
+  font-size:1.05rem;
 }
-.photo {
-  margin:30px auto 55px;
-}
-.photo img {
-  width:100%;
-  display:block;
-  border-radius:10px;
-  box-shadow:0 28px 85px rgba(0,0,0,.72);
-}
-.dialog {
-  border-left:4px solid #6a4423;
-  padding:13px 18px;
-  background:rgba(255,244,205,.25);
-  font-style:italic;
-}
-.speaker {
-  font-weight:bold;
-  font-style:normal;
-}
-blockquote {
-  margin:80px 0 20px;
-  padding:34px 24px;
-  text-align:center;
-  font-size:clamp(1.15rem,2.5vw,1.55rem);
-  font-style:italic;
+a.btn{
+  display:inline-block;
+  margin-top:18px;
+  color:#28180e;
+  text-decoration:none;
+  font-family:"Courier New",monospace;
+  border:1px solid rgba(60,35,17,.55);
+  padding:12px 16px;
   background:rgba(255,255,255,.18);
-  border-top:1px solid rgba(60,35,17,.35);
-  border-bottom:1px solid rgba(60,35,17,.35);
 }
-@media (max-width:640px) {
-  .wrapper { padding:0; }
-  .paper { border-radius:0; padding:24px 18px 60px; }
-  .cover { min-height:55vh; }
-  p { line-height:1.75; }
+a.btn:hover{
+  background:rgba(255,255,255,.35);
 }
-@media print {
-  body { background:white; }
-  .wrapper { padding:0; }
-  .paper { box-shadow:none; border:none; }
-  .photo, .scene { page-break-inside:avoid; }
+.footer{
+  margin-top:65px;
+  text-align:center;
+  font-style:italic;
+  color:#5d3f25;
+}
+@media(max-width:650px){
+  .wrap{padding:0}
+  .paper{border-radius:0}
 }
 </style>
 </head>
 <body>
-<div class="wrapper">
+<div class="wrap">
 <main class="paper">
+  <section class="cover">
+    <div class="small">EXPEDIENTE RECUPERADO</div>
+    <h1>SAN AURELIO</h1>
+    <h2>Las voces que nadie escuchó</h2>
+  </section>
 
-<section class="cover">
-  <div class="small">SAN AURELIO</div>
-  <h1>Capítulo 0</h1>
-  <h2>Antes del Silencio</h2>
-  <p class="vol">Volumen I · Las voces que nadie escuchó</p>
-</section>
-<section class='archive'>
-<p>ARCHIVO RECUPERADO #001</p>
+  <section class="note">
+    <p><strong>Archivo central del proyecto.</strong></p>
+    <p>Acontecimientos estimados: Primavera de 2010.</p>
+    <p>Reconstrucción del expediente: Año 2026.</p>
+    <p>Las imágenes incluidas son reconstrucciones visuales basadas en testimonios, diarios personales, informes parciales y material fragmentario.</p>
+  </section>
 
-<p>
-Procedencia: Desconocida.<br>
-Fecha estimada de los acontecimientos: Primavera de 2010.<br>
-Fecha de recuperación del material: Año 2026.<br>
-Estado del documento: Parcialmente conservado.
-</p><p>Observaciones</p><p>Parte de los documentos relacionados con San Aurelio fueron encontrados en condiciones irregulares.<br>
-La mayoría presentaba daños provocados por humedad, fuego o deterioro natural.<br>
-Algunos fragmentos resultaron imposibles de recuperar.<br>
-Otros parecían haber sido alterados.
-</p><p>Sin embargo, ciertos documentos permanecieron intactos.<br>Este manuscrito es uno de ellos.
-</p><p>No contiene firma.<br>No contiene fecha.<br>No menciona quién lo escribió.</p>
-<p>Pero todas las referencias encontradas apuntan hacia un mismo lugar.<br>Y hacia una misma persona.</p><p>Una niña llamada Irene.</p><p>Nota del Archivista</p><p>No existen registros oficiales que expliquen los acontecimientos relacionados con la hora 11:47.<br>
-Sin embargo, los testimonios recuperados coinciden en un detalle inquietante.<br>
-Todos hablan de un día que cambió para siempre a los habitantes de San Aurelio.
-</p><p>Este documento corresponde al inicio de esos acontecimientos.</p>
-<p>Clasificación: Restringida.<br>Acceso autorizado únicamente para fines de investigación.</p><p>
-"No todas las historias deben ser olvidadas.<br>
-Algunas existen para recordarnos lo que fuimos capaces de perder."
-</p>
-</section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #001</h2>
-  <h3 class="photo-subtitle">"La niña de la bicicleta"</h3>
-  <figure class="photo">
-    <img src="assets/001_la_nina_de_la_bicicleta.png" alt="La niña de la bicicleta">
-  </figure>
-<p>En San Aurelio nadie hablaba de las once cuarenta y siete.</p><p>No porque fuera una hora importante.</p><p>No porque hubiera ocurrido algo especial.</p><p>Al menos eso decían.</p><p>Sin embargo, cuando el campanario marcaba aquella hora, algunas personas evitaban levantar la vista.</p><p>Otras cerraban las ventanas.</p><p>Algunas cambiaban de tema.</p><p>Y unas pocas fingían no haber escuchado nunca hablar de ello.</p><p>La ciudad continuaba funcionando.</p><p>Las tiendas abrían.</p><p>Los niños asistían a la escuela.</p><p>Los vecinos se saludaban en la plaza.</p><p>Todo parecía normal.</p><p>Pero San Aurelio había aprendido hacía mucho tiempo que las cosas podían parecer normales sin serlo.</p><p>Porque los pueblos guardan secretos.</p><p>Y algunos secretos permanecen ocultos durante generaciones.</p><p>Esperando.</p><p>Observando.</p><p>Recordando.</p><p>Irene siempre intentaba evitar las grietas del camino.</p><p>No porque creyera que daban mala suerte.</p><p>Ni porque alguien se lo hubiera enseñado.</p><p>Simplemente le parecían tristes.</p><p>Cada vez que veía una grieta imaginaba que algo había intentado romperse y no lo había conseguido por completo.</p><p>Por eso movía el manubrio de la bicicleta de un lado a otro.</p><p>Esquivándolas.</p><p>Como si pudiera ayudarlas.</p><p>Aquella mañana había contado diecisiete.</p><p>Diecisiete grietas.</p><p>Dos perros.</p><p>Tres gatos.</p><p>Y una nube que parecía un conejo.</p><p>Irene sonrió.</p><p>Era importante recordar esas cosas.</p><p>Los adultos siempre parecían demasiado ocupados para hacerlo.</p><p>Pedaleó lentamente alrededor de la plaza principal.</p><p>Las ruedas crujían sobre las piedras húmedas.</p><p>A su alrededor, San Aurelio despertaba.</p><p>Las persianas se abrían.</p><p>Las puertas comenzaban a moverse.</p><p>El aroma del pan recién horneado recorría las calles.</p><p>Todo parecía tranquilo.</p><p>Pero Irene sabía que las apariencias engañaban.</p><p>Lo había aprendido en casa.</p><p>Su madre sonreía cuando había visitas.</p><p>Su padre preguntaba cómo había ido la escuela.</p><p>Durante unos minutos todo parecía estar bien.</p><p>Luego las puertas se cerraban.</p><p>Y los gritos regresaban.</p><p>Irene bajó la mirada.</p><p>No le gustaba pensar en eso.</p><p>Por eso prefería contar grietas.</p><p>O nubes.</p><p>O gatos.</p><p>Las cosas simples eran más fáciles de entender.</p><p class='dialog'><span class='speaker'>Irene:</span> —Buenos días, señor Carlos.</p><p class='dialog'><span class='speaker'>Carlos:</span> —Buenos días, Irene.</p><p>La niña siguió avanzando.</p><p>No vio que Carlos permaneció observándola varios segundos después.</p><p>No vio la tristeza escondida detrás de aquella sonrisa.</p><p>No vio el recuerdo que acababa de despertar.</p><p>Porque algunas heridas aprenden a esconderse demasiado bien.</p><p>Más adelante encontró a Héctor sentado en una banca.</p><p>Como siempre.</p><p>Rodeado de palomas.</p><p class='dialog'><span class='speaker'>Irene:</span> —Buenos días, señor Héctor.</p><p class='dialog'><span class='speaker'>Héctor:</span> —Buenos días, pequeña.</p><p>Las palomas continuaron picoteando las migas de pan.</p><p>Irene dudó unos segundos.</p><p class='dialog'><span class='speaker'>Irene:</span> —¿Y María?</p><p>El silencio apareció inmediatamente.</p><p>La niña comprendió su error demasiado tarde.</p><p>María ya no estaba.</p><p>Había olvidado que algunas ausencias nunca dejan de doler.</p><p class='dialog'><span class='speaker'>Irene:</span> —Lo siento.</p><p>Héctor sonrió apenas.</p><p>Una sonrisa cansada.</p><p class='dialog'><span class='speaker'>Héctor:</span> —No te preocupes.</p><p>Irene asintió.</p><p>Volvió a subir a la bicicleta.</p><p>Y siguió su camino.</p><p>Mientras se alejaba miró una última vez hacia la banca.</p><p>Héctor seguía allí.</p><p>Hablando con las palomas.</p><p>Como si fueran viejas amigas.</p><p>Como si fueran las únicas que todavía lo escuchaban.</p><p>Y por alguna razón aquello le produjo tristeza.</p><p>Una tristeza pequeña.</p><p>De esas que permanecen durante todo el día.</p><p>La niña aceleró el pedaleo.</p><p>No sabía por qué.</p><p>Pero tenía la sensación de que algo estaba cambiando.</p><p>Algo que todavía no podía ver.</p><p>Algo que todavía no podía entender.</p><p>Y aunque no lo sabía...</p><p>San Aurelio también parecía sentirlo.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #002</h2>
-  <h3 class="photo-subtitle">"La panadería"</h3>
-  <figure class="photo">
-    <img src="assets/002_la_panaderia.png" alt="La panadería">
-  </figure>
-<p>Carlos siempre preparaba una barra de pan de más.</p><p>Nadie la compraba.</p><p>Nadie la pedía.</p><p>Nadie sabía siquiera que existía.</p><p>Aun así, cada mañana la colocaba sobre el mismo rincón del mostrador.</p><p>A la misma hora.</p><p>En el mismo lugar.</p><p>Y después fingía olvidarla.</p><p>Llevaba años haciéndolo.</p><p>Tantos que ya no recordaba cuándo había comenzado.</p><p>Aquella mañana ocurrió lo mismo.</p><p>Sacó las bandejas del horno.</p><p>El aroma del pan recién horneado llenó el local.</p><p>El calor envolvió las paredes.</p><p>Y allí estaba.</p><p>La barra extra.</p><p>Esperándolo.</p><p>Carlos permaneció inmóvil.</p><p>Luego la tomó entre las manos.</p><p>Todavía estaba caliente.</p><p>Y durante un instante recordó una risa.</p><p>Una voz.</p><p>Unas manos cubiertas de harina.</p><p>Una niña sentada sobre el mostrador.</p><p class='dialog'><span class='speaker'>La hija de Carlos, en el recuerdo:</span> —Papá, esta quedó torcida.</p><p class='dialog'><span class='speaker'>Carlos, en el recuerdo:</span> —Las mejores siempre quedan torcidas.</p><p>La imagen desapareció tan rápido como había llegado.</p><p>Carlos cerró los ojos.</p><p>Aquella conversación nunca había ocurrido realmente.</p><p>O tal vez sí.</p><p>Con los años, los recuerdos terminan mezclándose con aquello que uno hubiera querido decir.</p><p>Dejó el pan en su lugar.</p><p>Miró por la ventana.</p><p>La plaza comenzaba a llenarse.</p><p>Y entre toda la gente distinguió a Irene alejándose en bicicleta.</p><p>Por un instante sintió algo extraño.</p><p>Como una preocupación.</p><p>Como un presentimiento.</p><p>Algo pequeño.</p><p>Algo absurdo.</p><p>Pero suficiente para que siguiera observando incluso después de que la niña desapareciera al doblar la esquina.</p><p>No sabía por qué.</p><p>Solo tenía la sensación de que aquel día no sería como los demás.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #003</h2>
-  <h3 class="photo-subtitle">"El aula"</h3>
-  <figure class="photo">
-    <img src="assets/003_el_aula.png" alt="El aula">
-  </figure>
-<p>Mily llegó a la escuela diez minutos antes que el resto.</p><p>Como siempre.</p><p>Le gustaba el silencio de las aulas vacías.</p><p>Era uno de los pocos momentos del día en los que todo parecía estar en orden.</p><p>Abrió la puerta.</p><p>Las mesas permanecían alineadas.</p><p>La pizarra seguía limpia.</p><p>Los primeros rayos de sol atravesaban las ventanas.</p><p>Y durante unos segundos el aula pareció perfecta.</p><p>Mily sonrió.</p><p>Luego dejó su bolso sobre el escritorio.</p><p>Tenía veintinueve años.</p><p>Algunas personas todavía la llamaban “la nueva profesora”, aunque llevaba varios años trabajando allí.</p><p>Otras decían que era demasiado joven para enseñar.</p><p>Ella nunca discutía.</p><p>Había aprendido que las personas siempre encuentran algo que decir.</p><p>Mientras organizaba unos cuadernos encontró un dibujo olvidado.</p><p>Una casa.</p><p>Dos personas tomadas de la mano.</p><p>Un árbol.</p><p>Y un sol enorme ocupando media hoja.</p><p>Mily observó el papel durante varios segundos.</p><p>Después sonrió otra vez.</p><p>Los niños tenían una forma extraña de ver el mundo.</p><p>Todavía creían que las cosas podían arreglarse.</p><p>Todavía creían que las personas permanecían para siempre.</p><p>A veces los envidiaba.</p><p>Sacó el teléfono.</p><p>Había un mensaje nuevo.</p><p>Era de Daniel.</p><p>Su esposo.</p><p>“¿Recordaste desayunar o vas a sobrevivir solo con café otra vez?”</p><p>Mily soltó una pequeña risa.</p><p>Tecleó una respuesta.</p><p>“Estoy desayunando.”</p><p>Era mentira.</p><p>La respuesta llegó casi de inmediato.</p><p>“Mentira.”</p><p>Mily negó con la cabeza.</p><p>Después guardó el teléfono.</p><p>Aquellas conversaciones pequeñas eran una de las razones por las que los días difíciles seguían siendo soportables.</p><p>Daniel siempre encontraba una forma de hacerla sonreír.</p><p>Incluso cuando ella no tenía ganas.</p><p>Miró nuevamente el dibujo.</p><p>La casa.</p><p>El árbol.</p><p>Las dos personas.</p><p>Por alguna razón sintió una punzada extraña en el pecho.</p><p>Algo breve.</p><p>Casi imperceptible.</p><p>Como un recuerdo que todavía no había ocurrido.</p><p>Frunció el ceño.</p><p>Luego dejó el dibujo sobre el escritorio.</p><p>Las voces de los niños comenzaron a escucharse en el pasillo.</p><p>La escuela despertaba.</p><p>Y por primera vez aquella mañana, Mily tuvo la sensación de que algo estaba a punto de cambiar.</p><p>No sabía qué.</p><p>No sabía cuándo.</p><p>Pero la sensación permaneció allí.</p><p>Silenciosa.</p><p>Esperando.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #004</h2>
-  <h3 class="photo-subtitle">"Las flores"</h3>
-  <figure class="photo">
-    <img src="assets/004_las_flores.png" alt="Las flores">
-  </figure>
-<p>Esmeralda regaba las flores cada mañana.</p><p>Era una costumbre antigua.</p><p>Tan antigua que ya no recordaba cuándo había comenzado.</p><p>Quizá diez años.</p><p>Quizá veinte.</p><p>Quizá toda una vida.</p><p>El agua caía lentamente sobre los pétalos.</p><p>Las flores parecían inclinarse para recibirla.</p><p>A Esmeralda le gustaba pensar que las plantas escuchaban.</p><p>Que guardaban secretos.</p><p>Que recordaban cosas que las personas terminaban olvidando.</p><p>Por eso les hablaba a veces.</p><p>Cuando nadie la observaba.</p><p>Aquella mañana ocurrió lo mismo.</p><p>Tomó la regadera.</p><p>Recorrió el jardín.</p><p>Y comenzó a trabajar.</p><p>El aire olía a tierra húmeda.</p><p>El viento movía suavemente las ramas de los árboles.</p><p>Todo parecía tranquilo.</p><p>Sin embargo, al llegar al último cantero se detuvo.</p><p>Había una flor nueva.</p><p>Pequeña.</p><p>Blanca.</p><p>No recordaba haberla plantado.</p><p>Frunció el ceño.</p><p>Se inclinó para observarla mejor.</p><p>Y por alguna razón sonrió.</p><p>Aquella flor le resultaba familiar.</p><p>Como una canción escuchada hace mucho tiempo.</p><p>Como una voz olvidada.</p><p>Como un recuerdo que se negaba a desaparecer.</p><p>Esmeralda levantó la vista.</p><p>Los árboles permanecían inmóviles.</p><p>El sendero estaba vacío.</p><p>Y aun así tuvo la sensación de que alguien acababa de marcharse.</p><p>No era miedo.</p><p>No era tristeza.</p><p>Era algo diferente.</p><p>Algo más difícil de explicar.</p><p>Como cuando uno espera una llamada que nunca llega.</p><p>O una visita que se ha retrasado demasiado.</p><p>Permaneció inmóvil unos segundos.</p><p>Escuchando.</p><p>Esperando.</p><p>Pero no ocurrió nada.</p><p>Solo el viento.</p><p>Solo las hojas.</p><p>Solo el silencio.</p><p>Finalmente volvió a regar las flores.</p><p>Aunque la sensación no desapareció.</p><p>Y mientras continuaba trabajando, una idea cruzó su mente.</p><p>Una idea absurda.</p><p>Una idea imposible.</p><p>La misma idea que regresaba cada ciertos años.</p><p>¿Qué ocurriría si algún día alguien regresara?</p><p>Esmeralda bajó la mirada.</p><p>Y continuó regando.</p><p>Como si nunca hubiera pensado en ello.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #005</h2>
-  <h3 class="photo-subtitle">"El campanario"</h3>
-  <figure class="photo">
-    <img src="assets/005_el_campanario.png" alt="El campanario">
-  </figure>
-<p>En San Aurelio las campanas ya no sonaban.</p><p>Nadie recordaba exactamente cuándo habían dejado de hacerlo.</p><p>Algunos decían que fue por una tormenta.</p><p>Otros culpaban al paso del tiempo.</p><p>Y unos pocos aseguraban que simplemente decidieron callar.</p><p>Como el resto del pueblo.</p><p>El campanario seguía allí.</p><p>Elevándose sobre los techos.</p><p>Observando las calles.</p><p>Observando la plaza.</p><p>Observando a las personas que fingían que nada ocurría.</p><p>Las agujas del reloj continuaban avanzando.</p><p>Lentas.</p><p>Implacables.</p><p>Como si el tiempo fuera la única cosa que todavía funcionaba correctamente.</p><p>Aquella mañana el cielo permanecía despejado.</p><p>Las nubes avanzaban despacio.</p><p>Los niños corrían por las calles.</p><p>Los comerciantes abrían sus negocios.</p><p>Todo parecía normal.</p><p>Pero San Aurelio llevaba años perfeccionando la apariencia de normalidad.</p><p>Era una ciudad experta en eso.</p><p>Una ciudad experta en ocultar.</p><p>Las agujas avanzaron.</p><p>11:45.</p><p>Nadie levantó la vista.</p><p>11:46.</p><p>Una ráfaga de viento recorrió la plaza.</p><p>Las hojas secas comenzaron a moverse.</p><p>Algunas personas sintieron un escalofrío.</p><p>No supieron explicar por qué.</p><p>11:47.</p><p>Entonces ocurrió algo extraño.</p><p>Nada.</p><p>Absolutamente nada.</p><p>El reloj continuó avanzando.</p><p>Las personas siguieron caminando.</p><p>Los pájaros siguieron cantando.</p><p>Los negocios continuaron abiertos.</p><p>Y precisamente por eso resultaba inquietante.</p><p>Porque algo parecía faltar.</p><p>Como una palabra olvidada en medio de una conversación.</p><p>Como una nota ausente en una canción.</p><p>Como si la ciudad estuviera esperando algo.</p><p>O a alguien.</p><p>Muy lejos de la plaza, Irene levantó la vista hacia el campanario.</p><p>No sabía por qué.</p><p>Simplemente lo hizo.</p><p>Las agujas marcaban exactamente las 11:47.</p><p>Y durante un instante sintió algo.</p><p>No fue miedo.</p><p>No fue tristeza.</p><p>Fue una sensación diferente.</p><p>Una sensación que desapareció tan rápido como llegó.</p><p>Como si alguien hubiera pronunciado su nombre en voz baja.</p><p>La niña frunció el ceño.</p><p>Miró a su alrededor.</p><p>No había nadie.</p><p>Solo el viento.</p><p>Solo las calles.</p><p>Solo San Aurelio.</p><p>Y sin embargo...</p><p>Por primera vez en mucho tiempo...</p><p>La ciudad pareció estar escuchando.</p><p>Aquella sensación desapareció segundos después.</p><p>Las agujas continuaron avanzando.</p><p>11:48.</p><p>Todo volvió a la normalidad.</p><p>O al menos eso creyó Irene.</p><p>Porque algunas cosas comienzan mucho antes de que alguien las note.</p><p>Y algunas historias...</p><p>Comienzan exactamente a las 11:47.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #006</h2>
-  <h3 class="photo-subtitle">"Entre los árboles"</h3>
-  <figure class="photo">
-    <img src="assets/006_entre_los_arboles.png" alt="Entre los árboles">
-  </figure>
-<p>Aquella noche Irene no podía dormir.</p><p>Los gritos habían vuelto.</p><p>No eran más fuertes que otras veces.</p><p>No eran diferentes.</p><p>Quizá eso era lo peor.</p><p>La costumbre.</p><p>Las voces atravesaban las paredes.</p><p>Subían por las escaleras.</p><p>Se colaban bajo la puerta de su habitación.</p><p>Y terminaban allí.</p><p>Sentadas junto a ella.</p><p>Como visitantes que nunca se marchaban.</p><p>Irene permaneció inmóvil sobre la cama.</p><p>Abrazando sus rodillas.</p><p>Esperando.</p><p>No sabía exactamente qué esperaba.</p><p>Solo sabía que no quería escuchar más.</p><p>Entonces ocurrió.</p><p>Algo pequeño.</p><p>Tan pequeño que cualquier adulto lo habría ignorado.</p><p>La sensación cambió.</p><p>No desaparecieron los gritos.</p><p>No desapareció la tristeza.</p><p>No desapareció la noche.</p><p>Pero algo se volvió diferente.</p><p>Como si una ventana invisible se hubiera abierto en algún lugar.</p><p>Y una parte del peso hubiera escapado.</p><p>Irene levantó la cabeza.</p><p>Y la vio.</p><p>Una luz.</p><p>Pequeña.</p><p>Lejana.</p><p>Entre los árboles.</p><p>No brillaba como una estrella.</p><p>No parecía una lámpara.</p><p>No parecía fuego.</p><p>Parecía otra cosa.</p><p>Algo que no sabía cómo describir.</p><p>La luz permaneció inmóvil.</p><p>Como si estuviera observando.</p><p>O esperando.</p><p>Irene se acercó a la ventana.</p><p>Durante unos segundos simplemente la miró.</p><p>La luz no se movió.</p><p>No intentó acercarse.</p><p>No intentó llamar su atención.</p><p>Solo estaba allí.</p><p>Y por alguna razón...</p><p>Aquello hizo que Irene sintiera pena.</p><p>No miedo.</p><p>Pena.</p><p>Porque la luz parecía sola.</p><p>Tan sola que casi resultaba doloroso mirarla.</p><p>La niña abrió la ventana.</p><p>El aire frío de la noche entró lentamente en la habitación.</p><p>Las hojas de los árboles se movieron.</p><p>La luz continuó inmóvil.</p><p>Entonces Irene habló.</p><p class='dialog'><span class='speaker'>Irene:</span> —¿Estás perdida?</p><p>No hubo respuesta.</p><p>Ni una voz.</p><p>Ni un sonido.</p><p>Nada.</p><p>Y sin embargo...</p><p>Irene tuvo la sensación de que algo la había escuchado.</p><p>No observado.</p><p>Escuchado.</p><p>Como si aquella pequeña luz prestara atención a cosas que nadie más veía.</p><p>A las lágrimas.</p><p>A los silencios.</p><p>A las promesas rotas.</p><p>A las palabras que nunca llegaban a decirse.</p><p>La niña permaneció inmóvil.</p><p>Y por primera vez sintió algo extraño.</p><p>No provenía de ella.</p><p>No provenía de la habitación.</p><p>No provenía de la ciudad.</p><p>Venía de la luz.</p><p>Era una emoción.</p><p>Una sola.</p><p>Soledad.</p><p>Tan profunda que parecía no tener fondo.</p><p>Tan antigua que parecía haber existido siempre.</p><p>Los ojos de Irene comenzaron a humedecerse.</p><p>No entendía por qué.</p><p>No sabía qué era aquella luz.</p><p>No sabía quién era.</p><p>No sabía por qué estaba allí.</p><p>Pero entendía aquella soledad.</p><p>Porque algunas tristezas no necesitan explicación.</p><p>La luz tembló.</p><p>Apenas un instante.</p><p>Y entonces Irene hizo algo que ningún adulto habría hecho.</p><p>No preguntó qué era.</p><p>No preguntó de dónde venía.</p><p>No preguntó qué quería.</p><p>Preguntó lo único que importaba.</p><p class='dialog'><span class='speaker'>Irene:</span> —¿Te sientes sola?</p><p>El viento dejó de moverse.</p><p>Los árboles quedaron inmóviles.</p><p>La noche entera pareció contener la respiración.</p><p>La luz volvió a temblar.</p><p>Y por primera vez...</p><p>Irene comprendió que la respuesta era sí.</p><p>La niña bajó la mirada.</p><p>Pensó en Héctor.</p><p>Pensó en Carlos.</p><p>Pensó en Esmeralda.</p><p>Pensó en su propia casa.</p><p>Y por alguna razón sintió que todas aquellas tristezas estaban conectadas.</p><p>Como si fueran pequeñas gotas pertenecientes al mismo océano.</p><p>Entonces sonrió.</p><p>Una sonrisa pequeña.</p><p>Frágil.</p><p>Humana.</p><p class='dialog'><span class='speaker'>Irene:</span> —Yo también me siento sola a veces.</p><p>La luz brilló un poco más.</p><p>No mucho.</p><p>Solo lo suficiente para parecer menos distante.</p><p>Menos fría.</p><p>Menos sola.</p><p>Y entonces Irene hizo una promesa.</p><p>Una promesa que cambiaría mucho más de lo que ella podía imaginar.</p><p class='dialog'><span class='speaker'>Irene:</span> —No quiero que estés sola.</p><p>La luz permaneció inmóvil.</p><p>Pero algo cambió.</p><p>Algo diminuto.</p><p>Algo imposible de explicar.</p><p>Como si después de muchísimo tiempo...</p><p>Alguien finalmente hubiera decidido quedarse.</p><p>Irene apoyó una mano sobre el marco de la ventana.</p><p>Y susurró:</p><p class='dialog'><span class='speaker'>Irene:</span> —Te acompañaré.</p><p>El bosque guardó silencio.</p><p>La ciudad guardó silencio.</p><p>La noche guardó silencio.</p><p>Y durante un segundo la luz brilló más intensamente.</p><p>Solo una vez.</p><p>Solo un instante.</p><p>Lo suficiente para mostrar algo.</p><p>Una imagen.</p><p>Un recuerdo.</p><p>O quizá una advertencia.</p><p>Una bicicleta.</p><p>Pequeña.</p><p>Abandonada.</p><p>Cubierta por hojas secas.</p><p>Y después desapareció.</p><p>La luz volvió a ser solo una luz.</p><p>Pequeña.</p><p>Silenciosa.</p><p>Lejana.</p><p>Pero ya no parecía tan sola como antes.</p><p>E Irene tampoco.</p></section>
-<section class="scene">
-  <h2 class="photo-title">Fotografía Recuperada #007</h2>
-  <h3 class="photo-subtitle">"La bicicleta"</h3>
-  <figure class="photo">
-    <img src="assets/007_la_bicicleta.png" alt="La bicicleta">
-  </figure>
-<p>Carlos cerró la panadería más tarde de lo habitual.</p><p>No porque hubiera tenido mucho trabajo.</p><p>Ni porque quedaran clientes.</p><p>Simplemente no tenía ganas de volver a casa.</p><p>Aquello ocurría algunas noches.</p><p>Más de las que estaba dispuesto a admitir.</p><p>Bajó la cortina metálica.</p><p>El ruido resonó en la calle vacía.</p><p>Después guardó las llaves en el bolsillo.</p><p>La plaza permanecía en silencio.</p><p>Las ventanas estaban cerradas.</p><p>Las luces comenzaban a apagarse una por una.</p><p>San Aurelio parecía dormir.</p><p>O fingir que dormía.</p><p>Carlos comenzó a caminar.</p><p>Sin prisa.</p><p>Sin rumbo.</p><p>Solo caminaba.</p><p>Como hacía cuando los recuerdos pesaban demasiado.</p><p>El aire estaba frío.</p><p>Las hojas secas se acumulaban junto a las aceras.</p><p>Y durante unos segundos todo pareció normal.</p><p>Entonces la vio.</p><p>Una luz.</p><p>Pequeña.</p><p>Lejana.</p><p>Entre los árboles.</p><p>Carlos se detuvo inmediatamente.</p><p>El corazón dejó de latir durante un instante.</p><p>No.</p><p>No podía ser.</p><p>Permaneció inmóvil.</p><p>Observando.</p><p>La luz no se movió.</p><p>No se acercó.</p><p>No desapareció.</p><p>Simplemente estaba allí.</p><p>Como si hubiera estado esperando.</p><p>Como si siempre hubiera estado esperando.</p><p>Carlos sintió que algo antiguo despertaba dentro de él.</p><p>Un recuerdo.</p><p>Una sensación.</p><p>Un miedo.</p><p>Los dedos comenzaron a temblarle.</p><p>No entendía por qué.</p><p>O quizá sí.</p><p>Y eso era peor.</p><p>La luz brilló suavemente.</p><p>Y durante un segundo el mundo desapareció.</p><p>La plaza.</p><p>La noche.</p><p>El frío.</p><p>Todo.</p><p>Porque la última vez que había visto aquella luz...</p><p>su hija todavía estaba viva.</p><p>La imagen apareció sin permiso.</p><p>Una bicicleta.</p><p>Pequeña.</p><p>Azul.</p><p>Una risa.</p><p>Un día cualquiera.</p><p>Un instante que había intentado olvidar durante años.</p><p>Carlos cerró los ojos.</p><p>El recuerdo desapareció.</p><p>Pero el dolor permaneció.</p><p>Siempre permanecía.</p><p>Volvió a mirar hacia los árboles.</p><p>La luz seguía allí.</p><p>Silenciosa.</p><p>Inmóvil.</p><p>Observándolo.</p><p>Y por primera vez en mucho tiempo...</p><p>Carlos tuvo miedo.</p><p>No miedo de la luz.</p><p>No miedo de la oscuridad.</p><p>No miedo del bosque.</p><p>Tuvo miedo de recordar.</p><p>Porque algunas heridas cicatrizan.</p><p>Y otras simplemente aprenden a esperar.</p><p>La luz tembló.</p><p>Solo una vez.</p><p>Y por un instante Carlos tuvo la sensación de que aquella cosa lo reconocía.</p><p>Como si lo hubiera visto antes.</p><p>Como si recordara su nombre.</p><p>Como si recordara a su hija.</p><p>Un escalofrío recorrió su espalda.</p><p>Entonces dio un paso atrás.</p><p>Luego otro.</p><p>Y otro más.</p><p>No estaba preparado.</p><p>Todavía no.</p><p>Muy lejos de allí...</p><p>entre los árboles...</p><p>la luz observó la ciudad.</p><p>Y durante unos segundos la ciudad pareció observarla de vuelta.</p><p>Como dos viejos conocidos que llevaban demasiado tiempo separados.</p><p>Después el viento regresó.</p><p>Las hojas volvieron a moverse.</p><p>La noche continuó su camino.</p><p>Y San Aurelio volvió a guardar silencio.</p></section><blockquote><br>&quot;No todas las fotografías cuentan la verdad.<br><br>Algunas solo recuerdan lo que ya no está.&quot;<br><br>— Archivo Recuperado de San Aurelio<br><br>Fin del Capítulo 0<br>ANTES DEL SILENCIO<br></blockquote>
+  <section class="grid">
+    <article class="card">
+      <div>
+        <h3>Capítulo 0</h3>
+        <p><strong>Antes del Silencio</strong></p>
+        <p>El inicio del expediente: Irene, Carlos, Mily, Esmeralda, el campanario y la primera manifestación de la Luz.</p>
+      </div>
+      <a class="btn" href="capitulos/capitulo_0_antes_del_silencio.html">Leer Capítulo 0</a>
+    </article>
+
+    <article class="card">
+      <div>
+        <h3>Capítulo I</h3>
+        <p><strong>La mañana después</strong></p>
+        <p>Irene intenta convencerse de que todo fue un sueño, mientras San Aurelio comienza a mostrar sus primeras grietas.</p>
+      </div>
+      <a class="btn" href="capitulos/capitulo_1_la_manana_despues.html">Leer Capítulo I</a>
+    </article>
+  </section>
+
+  <div class="footer">
+    “No todas las fotografías cuentan la verdad. Algunas solo recuerdan lo que ya no está.”
+  </div>
 </main>
 </div>
 </body>
